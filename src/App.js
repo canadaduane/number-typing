@@ -152,7 +152,7 @@ class App extends Component {
         </div>
         <div className="Authors">
           <Tooltip content="The author, canadaduane, and his daughter." styles={whiteTooltip}>
-            <img src={logo} className="App-logo" alt="logo" />
+            <a href="https://github.com/canadaduane/number-typing"><img src={logo} className="App-logo" alt="logo" /></a>
           </Tooltip>
         </div>
       </div>
