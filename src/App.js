@@ -59,6 +59,7 @@ class App extends Component {
     currentAnswers: [],
     historicalAnswers: [],
     answer: newAnswer(),
+    score: 0,
   }
 
   correctKey() {
@@ -91,10 +92,10 @@ class App extends Component {
         errorHistory: this.state.answer.errorHistory + (key === this.correctKey() ? '' : key)
       }
     }, () => {
+      console.log("state", this.state)
       const answer = this.state.answer
       if (answer.key === this.correctKey()) {
         // Correct answer; add answer to currentAnswers
-        // console.log("prevState", prevState, "historicalAnswers", this.state.historicalAnswers)
         const updatedCurrentAnswers = this.state.currentAnswers.concat(answer)
         this.setState({
           currentIndex: this.state.currentIndex + 1,
@@ -110,6 +111,7 @@ class App extends Component {
               historicalAnswers: this.state.historicalAnswers
                 .concat([updatedCurrentAnswers]),
               answer: newAnswer(),
+              score: this.state.score + 1,
             })
           }
         })
@@ -127,6 +129,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Number Typing</h1>
         </header>
+        <div className="Score"><div>Score:</div>{this.state.score}</div>
         <div className="App-intro">
           Typing Practice for the 0-9 Keys!
           <p>Here's your practice set:</p>

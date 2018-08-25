@@ -74,8 +74,15 @@
   background-color: #444444;
 }
 
-.Key.Error {
-  /* position: relative; */
+.Score {
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  font-size: 40px;
+  color: #000000;
+}
+.Score > div {
+  font-size: 18px;
 }
 
 .Key.Error::before {
