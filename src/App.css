@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  margin-top: 15px;
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Challenge, .Answers, .Historical {
+  font-size: 30px;
+  font-family: monospace;
+  width: 400px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  padding-left: 25px;
+}
+
+.Challenge {
+  margin-top: 30px;
+}
+
+.Answers {
+  margin-top: 15px;
+  color: #21f911;
+  background-color: #000000;
+  border-bottom: 3px double white;
+}
+
+.Historical {
+  color: #21f911;
+  background-color: #444444;
+}
+
+.Key.Error {
+  /* position: relative; */
+}
+
+.Key.Error::before {
+  color: #f92111;
+  content: '.';
+  position: absolute;
+  margin-top: 9px;
+}
+
+.Caret {
+  color: #ffcc88;
+}
