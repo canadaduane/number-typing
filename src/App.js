@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// 674 x 480
+import logo from './daddy-daughter.png';
+// 2578 x 1027
+import fingers from './fingers-keys.jpg';
+
 import './App.css';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import { Tooltip } from 'react-lightweight-tooltip';
@@ -33,6 +37,20 @@ const newAnswer = () => {
     errorHistory: "",
   }
 }
+// Tooltip Styles
+const tooltipStyles = {
+  wrapper: { color: '' },
+  tooltip: { 
+    border: '1px solid white',
+    paddingBottom: '12px',
+    minWidth: '',
+  },
+  content: {
+    color: '#ff2111',
+  },
+  arrow: {
+  }
+}
 
 class App extends Component {
   state = {
@@ -56,22 +74,9 @@ class App extends Component {
   }
 
   keysSoFarWithMarkup(answers = this.state.currentAnswers) {
-    const styles = {
-      wrapper: { color: '' },
-      tooltip: { 
-        border: '1px solid white',
-        paddingBottom: '12px',
-        minWidth: '',
-      },
-      content: {
-        color: '#ff2111',
-      },
-      arrow: {
-      }
-    }
     return answers.map(
       (a, i) => (a.errorHistory.length > 0
-        ? <Tooltip key={i} content={a.errorHistory} styles={styles}>
+        ? <Tooltip key={i} content={a.errorHistory} styles={tooltipStyles}>
             <span className="Key Error">{a.key}</span>
           </Tooltip>
         : <span className="Key Correct" key={i}>{a.key}</span>
@@ -86,7 +91,6 @@ class App extends Component {
         errorHistory: this.state.answer.errorHistory + (key === this.correctKey() ? '' : key)
       }
     }, () => {
-      // console.log("state", this.state)
       const answer = this.state.answer
       if (answer.key === this.correctKey()) {
         // Correct answer; add answer to currentAnswers
@@ -116,14 +120,15 @@ class App extends Component {
   }
 
   render() {
+    const whiteTooltip = Object.assign({}, tooltipStyles)
+    whiteTooltip.content = Object.assign({}, tooltipStyles.content, {color: 'white'})
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Number Typing Practice</h1>
+          <h1 className="App-title">Number Typing</h1>
         </header>
         <div className="App-intro">
-          Typing Practice!
+          Typing Practice for the 0-9 Keys!
           <p>Here's your practice set:</p>
           <div className="Challenge">
             {challenges[this.state.currentChallenge]}
@@ -139,6 +144,16 @@ class App extends Component {
           <KeyboardEventHandler
             handleKeys={['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']}
             onKeyEvent={this.handleKeyPress.bind(this)} />
+        </div>
+        <div className="Fingers">
+          <Tooltip content="Placement of fingers for quick number entry." styles={whiteTooltip}>
+            <img src={fingers} className="Fingers-img" alt="finger placement" />
+          </Tooltip>
+        </div>
+        <div className="Authors">
+          <Tooltip content="The author, canadaduane, and his daughter." styles={whiteTooltip}>
+            <img src={logo} className="App-logo" alt="logo" />
+          </Tooltip>
         </div>
       </div>
     );

@@ -3,13 +3,15 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /* animation: App-logo-spin infinite 20s linear; */
+  /* 674 x 480 */
+  width: 168px;
+  height: 120px;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 60px;
   padding: 20px;
   color: white;
 }
@@ -21,6 +23,23 @@
 .App-intro {
   margin-top: 15px;
   font-size: large;
+}
+
+.Authors {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.Fingers {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.Fingers-img {
+ /* 2578 x 1027 */
+  width: 429px;
+  height: 171px;
 }
 
 @keyframes App-logo-spin {
